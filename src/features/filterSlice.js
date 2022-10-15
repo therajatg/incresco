@@ -1,5 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { current } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import axios from "axios";
 import { allFilterFunctions, compose } from "../helperFunctions";
 
@@ -15,6 +14,7 @@ const initialState = {
 };
 
 const getProductData = createAsyncThunk("posts/getAllProducts", async () => {
+  console.log(1);
   const response = await axios.get("https://demo7303877.mockable.io/");
   return response.data.products;
 });
@@ -25,6 +25,7 @@ const filterSlice = createSlice({
   reducers: {
     genderAction: (state, action) => {
       state.gender = action.payload;
+      console.log(current(state));
       state.filteredProducts = compose(allFilterFunctions, state);
     },
 
@@ -35,6 +36,10 @@ const filterSlice = createSlice({
 
     brandAction: (state, action) => {
       state.brand = action.payload;
+      state.filteredProducts = compose(allFilterFunctions, state);
+    },
+    searchAction: (state, action) => {
+      state.searchedTerm = action.payload;
       state.filteredProducts = compose(allFilterFunctions, state);
     },
 
@@ -63,6 +68,11 @@ const filterSlice = createSlice({
 });
 
 export { getProductData };
-export const { genderAction, categoryAction, brandAction, resetAction } =
-  filterSlice.actions;
+export const {
+  genderAction,
+  categoryAction,
+  brandAction,
+  resetAction,
+  searchAction,
+} = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

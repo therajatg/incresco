@@ -19,18 +19,41 @@ export const Gender = () => {
 
   return (
     <div className={style.gender}>
-      {allGenders?.map((gender) => (
-        <div key={gender}>
-          <input
-            type="radio"
-            id={gender}
-            name="gender"
-            value={gender}
-            onChange={() => dispatch(genderAction(gender))}
-          />
-          <label htmlFor={gender}>{gender}</label>
-        </div>
-      ))}
+      <input
+        type="radio"
+        id="unisex"
+        name="gender"
+        value="Unisex"
+        onChange={() => dispatch(genderAction("Unisex"))}
+      />
+      <label htmlFor="unisex">Unisex</label>
+      <br />
+      <input
+        type="radio"
+        id="men"
+        name="gender"
+        value="Men"
+        onChange={() => dispatch(genderAction("Men"))}
+      />
+      <label htmlFor="men">Men</label>
+      <br />
+      <input
+        type="radio"
+        id="women"
+        name="gender"
+        value="Women"
+        onChange={() => dispatch(genderAction("Women"))}
+      />
+      <label htmlFor="women">Women</label>
+      <br />
+      <input
+        type="radio"
+        id="boys"
+        name="gender"
+        value="Boys"
+        onChange={() => dispatch(genderAction("Boys"))}
+      />
+      <label htmlFor="boys">Boys</label>
     </div>
   );
 };

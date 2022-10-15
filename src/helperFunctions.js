@@ -1,7 +1,11 @@
 const getSearchData = (state, data) => {
   return state.searchedTerm === null
     ? data
-    : data.filter((product) => state.searchedTerm in product.productName);
+    : data.filter((product) =>
+        product.productName
+          .toLowerCase()
+          .includes(state.searchedTerm.toLowerCase())
+      );
 };
 
 const getCategoryData = (state, data) => {
@@ -17,6 +21,7 @@ const getBrandData = (state, data) => {
 };
 
 const getGenderData = (state, data) => {
+  //   console.log(state);
   return state.gender === null
     ? data
     : data.filter((product) => state.gender === product.gender);

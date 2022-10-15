@@ -4,5 +4,6 @@ export {
   genderAction,
   categoryAction,
   brandAction,
+  searchAction,
   resetAction,
 } from "./filterSlice";

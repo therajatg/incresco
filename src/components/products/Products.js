@@ -5,12 +5,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProductData } from "../../features/index";
 
 export const Products = () => {
-  const { filteredProducts, products } = useSelector((store) => store.filter);
+  const { filteredProducts } = useSelector((store) => store.filter);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProductData());
-  }, [products]);
+  }, []);
 
   return (
     <main className={style.main}>
