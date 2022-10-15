@@ -51,6 +51,7 @@ const filterSlice = createSlice({
     resetAction: (state) => {
       state.filteredProducts = state.products;
       state.gender = null;
+      state.sortBy = null;
       state.category = [];
       state.brand = [];
       state.searchedTerm = [];
