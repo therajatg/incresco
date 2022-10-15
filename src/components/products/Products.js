@@ -14,9 +14,13 @@ export const Products = () => {
 
   return (
     <main className={style.main}>
-      {filteredProducts?.map((item) => (
-        <ProductCard item={item} key={item.productId} />
-      ))}
+      {filteredProducts.length === 0 ? (
+        <h2>Item not found</h2>
+      ) : (
+        filteredProducts?.map((item) => (
+          <ProductCard item={item} key={item.productId} />
+        ))
+      )}
     </main>
   );
 };
