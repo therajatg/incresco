@@ -1,10 +1,11 @@
 import { sortAction } from "../../features/index";
 import { useDispatch } from "react-redux";
+import style from "./sort.module.css";
 
 export const Sort = () => {
   const dispatch = useDispatch();
   return (
-    <div>
+    <div className={style.sort}>
       <label htmlFor="products">Sort by:</label>
       <select
         id="products"

@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <div className="app">
       <Navbar />
-      <Sort />
+      <Sort className="sort" />
       <div className="content">
         <Sidebar className="sidebar" />
         <Products />

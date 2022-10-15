@@ -10,7 +10,12 @@ export const Sidebar = () => {
       <Gender />
       <Categories />
       <Brand />
-      <button onClick={() => dispatch(resetAction())}>Clear All</button>
+      <button
+        onClick={() => dispatch(resetAction())}
+        className={style.resetBtn}
+      >
+        Clear All
+      </button>
     </aside>
   );
 };

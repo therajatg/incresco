@@ -13,8 +13,8 @@
 }
 
 .description {
-  color: var(--border-color);
-  font-size: 0.7rem;
+  color: var(--small-font-color);
+  font-size: var(--font-size-small);
 }
 
 .price {
@@ -24,12 +24,12 @@
 }
 
 .mrp {
-  color: var(--border-color);
-  font-size: 0.7rem;
+  color: var(--small-font-color);
+  font-size: var(--font-size-small);
   text-decoration: line-through;
 }
 
 .discountPercent {
   color: #e3963e;
-  font-size: 0.7rem;
+  font-size: var(--font-size-small);
 }

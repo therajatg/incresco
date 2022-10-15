@@ -11,7 +11,7 @@
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: var(--font-size-large);
   margin-left: 3rem;
 }
 
