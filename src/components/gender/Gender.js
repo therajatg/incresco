@@ -1,25 +1,36 @@
 import style from "./gender.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { genderAction } from "../../features/index";
 
 export const Gender = () => {
+  const [allGenders, setAllGenders] = useState([]);
+  const { filteredProducts } = useSelector((store) => store.filter);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const genderData = filteredProducts.map((product) => product.gender);
+    setAllGenders(
+      genderData.filter(
+        (genderName, index) => genderData.indexOf(genderName) === index
+      )
+    );
+  }, [filteredProducts]);
+
   return (
     <div className={style.gender}>
-      <input type="radio" id="men" name="gender" />
-      <label htmlFor="men">Men</label>
-
-      <input type="radio" id="women" name="gender" />
-      <label htmlFor="women" name="gender">
-        Women
-      </label>
-
-      <input type="radio" id="boys" name="gender" />
-      <label htmlFor="boys" name="gender">
-        Boys
-      </label>
-
-      <input type="radio" id="girls" name="gender" />
-      <label htmlFor="girls" name="gender">
-        Girls
-      </label>
+      {allGenders?.map((gender) => (
+        <div key={gender}>
+          <input
+            type="radio"
+            id={gender}
+            name="gender"
+            value={gender}
+            onChange={() => dispatch(genderAction(gender))}
+          />
+          <label htmlFor={gender}>{gender}</label>
+        </div>
+      ))}
     </div>
   );
 };

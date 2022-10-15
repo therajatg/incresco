@@ -8,6 +8,7 @@ export const Sidebar = () => {
       <Gender />
       <Categories />
       <Brand />
+      <button>Clear All</button>
     </aside>
   );
 };

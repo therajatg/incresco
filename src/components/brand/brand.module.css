@@ -1,0 +1,7 @@
+.remaining {
+  color: var(--secondary-color);
+}
+
+.remaining:hover {
+  cursor: pointer;
+}

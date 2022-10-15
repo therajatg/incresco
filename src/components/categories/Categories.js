@@ -1,21 +1,66 @@
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import style from "./categories.module.css";
+import { categoryAction } from "../../features/index";
+
 export const Categories = () => {
+  const [categories, setCategories] = useState([]);
+  const [selectedCategories, setSelectedcategories] = useState([]);
+  const [showAll, setShowAll] = useState(false);
+  const { filteredProducts } = useSelector((store) => store.filter);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const categoryData = filteredProducts.map((product) => product.category);
+    setCategories(
+      categoryData.filter(
+        (categoryName, index) => categoryData.indexOf(categoryName) === index
+      )
+    );
+  }, [filteredProducts]);
+
+  const categoryChangeHandler = (e) => {
+    setSelectedcategories(
+      selectedCategories.includes(e.target.value)
+        ? selectedCategories.filter((category) => category !== e.target.value)
+        : [...selectedCategories, e.target.value]
+    );
+  };
+
+  useEffect(() => {
+    dispatch(categoryAction(selectedCategories));
+  }, [selectedCategories]);
+
   return (
     <div>
-      <p>Categories</p>
-      <input type="checkbox" />
-      <label htmlFor="">tshirt</label>
-      <br />
-      <input type="checkbox" />
-      <label htmlFor="">tshirt</label>
-      <br />
-      <input type="checkbox" />
-      <label htmlFor="">tshirt</label>
-      <br />
-      <input type="checkbox" />
-      <label htmlFor="">tshirt</label>
-      <br />
-      <input type="checkbox" />
-      <label htmlFor="">tshirt</label>
+      {!showAll &&
+        categories?.slice(0, 8).map((category) => (
+          <div key={category}>
+            <input
+              type="checkbox"
+              id={category}
+              value={category}
+              onChange={categoryChangeHandler}
+            />
+            <label htmlFor={category}>{category}</label>
+          </div>
+        ))}
+      <p onClick={() => setShowAll(true)} className={style.remaining}>
+        + {!showAll && categories?.length - 8} more
+      </p>
+
+      {showAll &&
+        categories?.map((category) => (
+          <div key={category}>
+            <input
+              type="checkbox"
+              id={category}
+              value={category}
+              onChange={categoryChangeHandler}
+            />
+            <label htmlFor={category}>{category}</label>
+          </div>
+        ))}
     </div>
   );
 };
