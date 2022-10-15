@@ -33,6 +33,7 @@ export const Brand = () => {
 
   return (
     <div>
+      <h4>BRAND</h4>
       {!showAll &&
         brands?.slice(0, 8).map((brand) => (
           <div key={brand}>

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { filterReducer } from "./features/index";
+import { filterReducer, sortReducer } from "./features/index";
 
 export const store = configureStore({
-  reducer: { filter: filterReducer },
+  reducer: { filter: filterReducer, sort: sortReducer },
 });

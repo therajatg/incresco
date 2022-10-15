@@ -7,3 +7,10 @@ export {
   searchAction,
   resetAction,
 } from "./filterSlice";
+
+export {
+  sortReducer,
+  priceAction,
+  ratingAction,
+  yearAction,
+} from "./sortSlice";

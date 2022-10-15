@@ -33,6 +33,7 @@ export const Categories = () => {
 
   return (
     <div>
+      <h4>CATEGORIES</h4>
       {!showAll &&
         categories?.slice(0, 8).map((category) => (
           <div key={category}>
