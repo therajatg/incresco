@@ -1,20 +1,20 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import { ProductCard } from "../index";
 import style from "./products.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { getProductData } from "../../features/index";
 
 export const Products = () => {
-  const [productData, setProductData] = useState([]);
+  const { filteredProducts } = useSelector((store) => store.filter);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    (async () => {
-      const response = await axios.get("https://demo7303877.mockable.io/");
-      setProductData(response.data.products);
-      console.log(response.data.products);
-    })();
+    dispatch(getProductData());
   }, []);
+
   return (
     <main className={style.main}>
-      {productData?.map((item) => (
+      {filteredProducts?.map((item) => (
         <ProductCard item={item} key={item.productId} />
       ))}
     </main>

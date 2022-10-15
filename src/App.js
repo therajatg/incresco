@@ -1,12 +1,15 @@
 import React from "react";
 import "./App.css";
-import { Navbar, Products } from "./components/index";
+import { Navbar, Products, Sidebar } from "./components/index";
 
 export const App = () => {
   return (
-    <React.Fragment className="app">
+    <div className="app">
       <Navbar />
-      <Products />
-    </React.Fragment>
+      <div className="content">
+        <Sidebar className="sidebar" />
+        <Products />
+      </div>
+    </div>
   );
 };

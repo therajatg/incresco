@@ -13,6 +13,10 @@
   font-family: "Inter", sans-serif;
 }
 
-.app {
-  min-height: 100vh;
+.content {
+  display: flex;
 }
+
+/* .sidebar {
+  padding: 10rem;
+} */
