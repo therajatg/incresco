@@ -1,0 +1,35 @@
+.productCard {
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  width: 100%;
+}
+
+.brandName {
+  font-weight: 800;
+}
+
+.description {
+  color: var(--border-color);
+  font-size: 0.7rem;
+}
+
+.price {
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.mrp {
+  color: var(--border-color);
+  font-size: 0.7rem;
+  text-decoration: line-through;
+}
+
+.discountPercent {
+  color: #e3963e;
+  font-size: 0.7rem;
+}
