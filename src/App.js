@@ -1,8 +1,12 @@
+import React from "react";
 import "./App.css";
-import { Navbar } from "./components/index";
+import { Navbar, Products } from "./components/index";
 
-function App() {
-  return <Navbar />;
-}
-
-export default App;
+export const App = () => {
+  return (
+    <React.Fragment className="app">
+      <Navbar />
+      <Products />
+    </React.Fragment>
+  );
+};
