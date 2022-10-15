@@ -7,7 +7,7 @@ export const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedcategories] = useState([]);
   const [showAll, setShowAll] = useState(false);
-  const { filteredProducts } = useSelector((store) => store.filter);
+  const { filteredProducts, products } = useSelector((store) => store.filter);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export const Categories = () => {
         (categoryName, index) => categoryData.indexOf(categoryName) === index
       )
     );
-  }, [filteredProducts]);
+  }, [products]);
 
   const categoryChangeHandler = (e) => {
     setSelectedcategories(

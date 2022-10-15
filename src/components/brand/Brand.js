@@ -7,7 +7,7 @@ export const Brand = () => {
   const [brands, setBrands] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [showAll, setShowAll] = useState(false);
-  const { filteredProducts } = useSelector((store) => store.filter);
+  const { filteredProducts, products } = useSelector((store) => store.filter);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export const Brand = () => {
         (brandName, index) => brandsData.indexOf(brandName) === index
       )
     );
-  }, [filteredProducts]);
+  }, [products]);
 
   const brandChangeHandler = (e) => {
     setSelectedBrands(
