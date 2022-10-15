@@ -46,9 +46,11 @@ export const Brand = () => {
             <label htmlFor={brand}>{brand}</label>
           </div>
         ))}
-      <p onClick={() => setShowAll(true)} className={style.remaining}>
-        + {!showAll && brands?.length - 8} more
-      </p>
+      {!showAll && (
+        <p onClick={() => setShowAll(true)} className={style.remaining}>
+          + {brands?.length - 8} more
+        </p>
+      )}
 
       {showAll &&
         brands?.map((brand) => (

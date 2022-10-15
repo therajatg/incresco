@@ -46,9 +46,11 @@ export const Categories = () => {
             <label htmlFor={category}>{category}</label>
           </div>
         ))}
-      <p onClick={() => setShowAll(true)} className={style.remaining}>
-        + {!showAll && categories?.length - 8} more
-      </p>
+      {!showAll && (
+        <p onClick={() => setShowAll(true)} className={style.remaining}>
+          + {categories?.length - 8} more
+        </p>
+      )}
 
       {showAll &&
         categories?.map((category) => (
