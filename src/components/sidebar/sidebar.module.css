@@ -4,6 +4,7 @@
   flex-direction: column;
   row-gap: 2rem;
   padding: 2rem;
+  min-width: fit-content;
 }
 
 .resetBtn {
