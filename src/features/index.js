@@ -6,4 +6,5 @@ export {
   brandAction,
   searchAction,
   resetAction,
+  sortAction,
 } from "./filterSlice";

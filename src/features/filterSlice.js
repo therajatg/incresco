@@ -10,6 +10,7 @@ const initialState = {
   category: [],
   brand: [],
   searchedTerm: null,
+  sortBy: null,
   error: null,
 };
 
@@ -40,6 +41,10 @@ const filterSlice = createSlice({
     },
     searchAction: (state, action) => {
       state.searchedTerm = action.payload;
+      state.filteredProducts = compose(allFilterFunctions, state);
+    },
+    sortAction: (state, action) => {
+      state.sortBy = action.payload;
       state.filteredProducts = compose(allFilterFunctions, state);
     },
 
@@ -74,5 +79,6 @@ export const {
   brandAction,
   resetAction,
   searchAction,
+  sortAction,
 } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

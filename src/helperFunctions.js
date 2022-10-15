@@ -21,10 +21,24 @@ const getBrandData = (state, data) => {
 };
 
 const getGenderData = (state, data) => {
-  //   console.log(state);
   return state.gender === null
     ? data
     : data.filter((product) => state.gender === product.gender);
+};
+
+const getSortedData = (state, data) => {
+  switch (state.sortBy) {
+    case "lowToHigh":
+      return data.sort((a, b) => a.price - b.price);
+    case "highToLow":
+      return data.sort((a, b) => b.price - a.price);
+    case "year":
+      return data.sort((a, b) => a.year - b.year);
+    case "rating":
+      return data.sort((a, b) => a.rating - b.rating);
+    default:
+      return data;
+  }
 };
 
 export const allFilterFunctions = [
@@ -32,6 +46,7 @@ export const allFilterFunctions = [
   getCategoryData,
   getBrandData,
   getGenderData,
+  getSortedData,
 ];
 
 export const compose = (allFilterFunctions, state) =>

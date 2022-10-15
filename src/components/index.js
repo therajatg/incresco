@@ -5,3 +5,4 @@ export { Categories } from "./categories/Categories";
 export { Brand } from "./brand/Brand";
 export { Gender } from "./gender/Gender";
 export { Sidebar } from "./sidebar/Sidebar";
+export { Sort } from "./sort/Sort";
