@@ -8,15 +8,6 @@ export const Gender = () => {
   const { filteredProducts } = useSelector((store) => store.filter);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const genderData = filteredProducts.map((product) => product.gender);
-    setAllGenders(
-      genderData.filter(
-        (genderName, index) => genderData.indexOf(genderName) === index
-      )
-    );
-  }, [filteredProducts]);
-
   return (
     <div className={style.gender}>
       <input
